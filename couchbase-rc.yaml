@@ -1,0 +1,20 @@
+apiVersion: "v1"
+kind: "ReplicationController"
+metadata:
+  name: "couchbase"
+  labels:
+    app: "couchbaseApp"
+spec:
+  replicas: 2
+  selector:
+    app: "couchbaseApp"
+  template:
+    metadata:
+      labels:
+        app: "couchbaseApp"
+    spec:
+      containers:
+      - image: "couchbase"
+        name: "couchbase"
+        ports:
+        - containerPort: 8091

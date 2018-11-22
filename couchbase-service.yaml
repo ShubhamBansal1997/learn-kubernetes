@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: "couchbaseApp"
+  name: "couchbase"
+spec:
+  ports:
+  - port: 8091
+    targetPort: 8091
+  selector:
+    app: "couchbaseApp"
+  type: LoadBalancer
