@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "cdh"
+  labels:
+    app: "cdh"
+spec:
+  ports:
+  - port: 50010
+    name: "datanode"
+  - port: 8028
+    name: "namenode"
+  selector:
+    app: "cdh"
+  type: LoadBalancer
