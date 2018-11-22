@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: MultiContainerApp
+  name: hello-postgres
+spec:
+  ports:
+    - name: hello-world
+      port: 8080
+    - name: postgres
+      port: 5432
+  selector:
+    app: MultiContainerApp
+  type: LoadBalancer
