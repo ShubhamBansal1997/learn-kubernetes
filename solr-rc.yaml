@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: "solr-rc"
+  labels:
+    app: "solrApp"
+spec:
+  replicas: 2
+  selector:
+    app: "solrApp"
+    template:
+      metadata:
+        labels:
+          app: "solrApp"
+      spec:
+        containers:
+        - image: "solr"
+          name: "solr"
+          ports:
+          - containerPort: 8983
+            name: "solrApp"
